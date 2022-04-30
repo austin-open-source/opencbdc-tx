@@ -77,6 +77,18 @@ namespace cbdc::rpc {
                         std::function<void(cbdc::buffer)> response_callback)
             -> std::optional<OutBuffer> {
             if constexpr(!raw_mode) {
+                auto len = request_buf.size();
+                printf("size = %lu\n", len);
+                for (size_t i = 0; i < len; ++i) {
+                    if (i % 16 == 0) {
+                        printf("\n");
+                    }
+                    if (i % 8 == 0) {
+                        printf(" ");
+                    }
+                    printf("%x ", * ((unsigned char *)request_buf.data_at(i)));
+                }
+                printf("\n");
                 auto req = server_type::deserialize_request(request_buf);
                 if(!req.has_value()) {
                     return std::nullopt;
