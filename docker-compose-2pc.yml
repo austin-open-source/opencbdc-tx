@@ -26,6 +26,8 @@ services:
     image: opencbdc-tx
     tty: true
     command: ./build/src/uhs/twophase/coordinator/coordinatord 2pc-compose.cfg 0 0
+    ports:
+      - 7777:7777
     expose:
       - "7777"
     depends_on:
@@ -58,4 +60,3 @@ services:
 
 networks:
   2pc-network:
-    name: 2pc-network
