@@ -152,6 +152,16 @@ namespace cbdc {
                  ret});
         }
 
+        std::cout << "------- SECRET KEY -------" << std::endl;
+        for(unsigned int i = 0; i < seckey.size(); i++) {
+            std::cout << (int)seckey[i] << " ";
+        }
+        std::cout << std::endl;
+        std::cout << "------- PUBLIC KEY -------" << std::endl;
+        for(unsigned int i = 0; i < ret.size(); i++) {
+            std::cout << (int)ret[i] << " ";
+        }
+        std::cout << std::endl;
         return ret;
     }
 
